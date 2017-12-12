@@ -5,24 +5,114 @@
     <title>CRUSH HACKATHON</title>
     <link rel="stylesheet" href="splashPage.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
-    <script src="jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
-    
 
-    <div class="SplashPage">
-        <H1>
+<!-- select a person --> 
+<div class="ui two column centered grid SelectScreen" id="demoUser">   
+    <div class="column">
+        <h1 class="ui centered block inverted header">
             CRUSH Team Hackathon Demo
-        </H1>
+        </h1>
     </div>
 
+    <div class="column centered row">
+        <div class="ui people shape">
+            <div class="sides">
+                <div class="side active">
+                    <div class="ui card">
+                        <div class="image">
+                        <img src="https://semantic-ui.com/images/avatar/large/steve.jpg">
+                        </div>
+                        <div class="content">
+                        <div class="header">Steve Jobes</div>
+                        <div class="meta">
+                            <a>Acquaintances</a>
+                        </div>
+                        <div class="description">
+                            Steve Jobes is a fictional character designed to resemble someone familiar to readers.
+                        </div>
+                        </div>
+                        <div class="extra content">
+                        </div>
+                    </div>
+                </div>
 
-    <scrip>
+                <div class="side">
+                    <div class="ui card">
+                        <div class="image">
+                        <img src="https://semantic-ui.com/images/avatar/large/stevie.jpg">
+                        </div>
+                        <div class="content">
+                        <a class="header">Stevie Feliciano</a>
+                        <div class="meta">
+                            <span class="date">Joined in 2014</span>
+                        </div>
+                        <div class="description">
+                            Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
+                        </div>
+                        </div>
+                        <div class="extra content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </scrip>
+    <div class="column centered row">
+        <div class="ui button leftButton" data-animation="flip" data-direction="left" title="Flip Left"><i class="left long arrow icon"></i></div>  
+        <button class="ui button submitButton">Go</button>
+        <div class="ui button rightButton" data-animation="flip" data-direction="right" title="Flip Right"><i class="right long arrow icon"></i></div>
+    </div>
+</div>
+
+
+<!-- Form View --> 
+<div class="ui two column centered grid informationScreen" id="personalInfo">   
+    <div class="column">
+        <h1 class="ui centered block inverted header">
+            Tell us a little about yourself
+        </h1>
+    </div>
+
+    <div class="column centered row">
+    </div>
+</div>
+
+
+    <script>
+
+        var isPersonOne = true;
+        $('#personalInfo').hide();
+        
+        $('.shape').shape();
+
+        $('.leftButton').on('click', function(){
+            $('.shape').shape('flip left');
+
+            isPersonOne = !isPersonOne;
+        });
+
+        $('.rightButton').on('click', function(){
+            $('.shape').shape('flip right');
+            
+            isPersonOne = !isPersonOne;
+        });
+
+        $('.submitButton').on('click', function(){
+            $('.SelectScreen').remove();
+            $('#personalInfo').show();
+        })
+
+
+    </script>
 
 </body>
 
 </html>
+
+
